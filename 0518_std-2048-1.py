@@ -193,7 +193,7 @@ class Grid:
                     return True
         return False
     
-#20210521
+#202105
 class GamePanel():
     
     """整體背景顏色"""
