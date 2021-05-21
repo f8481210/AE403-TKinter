@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 21 18:53:53 2018
-
-@author: Eric
-"""
-
 import tkinter as tk
 import random
 
@@ -200,7 +193,7 @@ class Grid:
                     return True
         return False
     
-
+#20210521
 class GamePanel():
     
     """整體背景顏色"""
@@ -213,48 +206,48 @@ class GamePanel():
     CELL_BACKGROUND_COLOR_DICT = {
         '2': '#eee4da',
         '4': '#ede0c8',
-        '8': '#f2b179',
-        '16': '#f59563',
-        '32': '#f67c5f',
-        '64': '#f65e3b',
-        '128': '#edcf72',
-        '256': '#edcc61',
-        '512': '#edc850',
-        '1024': '#edc53f',
-        '2048': '#edc22e',
-        'default': '#3c3a32'
+        '8': '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        'default': '#f9f6f2'
     }
     
     """數字字體顏色 """
     CELL_COLOR_DICT = {
         '2': '#776e65',
         '4': '#776e65',
-        '8': '#f9f6f2',
-        '16': '#f9f6f2',
-        '32': '#f9f6f2',
-        '64': '#f9f6f2',
-        '128': '#f9f6f2',
-        '256': '#f9f6f2',
-        '512': '#f9f6f2',
-        '1024': '#f9f6f2',
-        '2048': '#f9f6f2',
+        '8': '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
+        '':  '',
         'default': '#f9f6f2'
     }
     
     FONT = ('Verdana', 24, 'bold')
-    UP_KEYS = ('w', 'W', 'Up')
-    LEFT_KEYS = ('a', 'A', 'Left')
-    DOWN_KEYS = ('s', 'S', 'Down')
-    RIGHT_KEYS = ('d', 'D', 'Right')
+    UP_KEYS = ('', '', '')
+    LEFT_KEYS = ('', '', '')
+    DOWN_KEYS = ('', '', '')
+    RIGHT_KEYS = ('', '', '')
 
     def __init__(self , grid):
         """將grid放入類別屬性內"""
-        self.grid = grid
+        self.grid = 
         self.size = grid.size
         """建立一個tkinter主視窗"""
-        self.window = tk.Tk()
+        self.window = 
         """設定視窗標題"""
-        self.window.title("2048")
+        self.window.title("    ")
         """設定遊戲背景"""
         self.background = tk.Frame(self.window, bg=self.BACKGROUND_COLOR)
         """建立空串列，用來儲存格子Label"""
@@ -262,22 +255,22 @@ class GamePanel():
         
         """初始化文字"""
         """用二維巢狀迴圈建立二維串列"""
-        for i in range(self.size):
+        for i in range(     ):
             #建立一個儲存"列"的串列
             row_labels = []
-            for j in range(self.size):
+            for j in range(     ):
                 """背景顏色為EMPTY_CELL_COLOR"""
                 """font為剛剛設置的FONT"""
                 label = tk.Label(self.background, text='',
-                                 bg=self.EMPTY_CELL_COLOR,
-                                 font=self.FONT,
+                                 bg=        ,
+                                 font=      ,
                                  width=4, height=2)
                 """設定label位置"""
-                label.grid(row=i, column=j, padx=10, pady=10)
+                label.grid(row=    , column=    , padx=10, pady=10)
                 """將新增好的Label放入row_labels內"""
-                row_labels.append(label)
+                row_labels.append(      )
                 """將新增好的row_labels放入cell_labels內"""
-            self.cell_labels.append(row_labels)
+            self.cell_labels.append(        )
             #將background放置到window畫面上
         self.background.grid()
         
@@ -285,36 +278,34 @@ class GamePanel():
     """把格子和字上色"""
     def paint(self):
         """用兩個迴圈掃過網格"""
-        for i in range(self.size):
-            for j in range(self.size):
+        for i in range():
+            for j in range():
                 
                  #如果那個格子數字是0
-                if self.grid.cells[i][j] == 0:
-                    """設定該格子的文字為空，背景為EMPTY_CELL_COLOR"""
-                    self.cell_labels[i][j].configure(
-                         text='',
-                         bg=GamePanel.EMPTY_CELL_COLOR)
+                if :
+                    """設定該格子的文字為空，背景為MPTY_CELL_COLOR"""
+                    
                     
                 #如果不是0，則依照字典顏色上色
                 #bg->background(背景)
                 #fg->foreground(前景)
                 else:
                     """cell_text為該格子的數值，轉為字串型態"""
-                    cell_text = str(self.grid.cells[i][j])
+                    cell_text = 
                     """如果數字超過2048"""
-                    if self.grid.cells[i][j] > 2048:
+                    if :
                         """color等於預設值"""
-                        bg_color = GamePanel.CELL_BACKGROUND_COLOR_DICT.get('default')
-                        fg_color = GamePanel.CELL_COLOR_DICT.get('default')
-                        """如果數字沒超過2048"""
+                        bg_color = 
+                        fg_color = 
+                    """如果數字沒超過2048"""
                     else:
                         """color由字典取值"""
-                        bg_color = GamePanel.CELL_BACKGROUND_COLOR_DICT.get(cell_text)
-                        fg_color = GamePanel.CELL_COLOR_DICT.get(cell_text)
+                        bg_color = 
+                        fg_color = 
                         
                     self.cell_labels[i][j].configure(
-                        text=cell_text,
-                        bg=bg_color, fg=fg_color)
+                        text=       ,
+                        bg=     , fg=       )
                     
 """控制整個遊戲流程"""
 class Game:
