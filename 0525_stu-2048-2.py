@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Nov 21 18:53:53 2018
-
-@author: Eric
-"""
-
 import tkinter as tk
 import random
 
@@ -22,15 +15,15 @@ class Grid:
         #建立一個儲存整個二維串列
         emptyGrid = []
         """用二維巢狀迴圈建立二維串列"""
-        for i in range(self.size):
+        for i in range():
             #建立一個儲存"列"的串列
             rowGrid = []
-            for j in range(self.size):
-                rowGrid.append(0)
+            for j in range():
+                rowGrid.append()
                 
-            emptyGrid.append(rowGrid)
+            emptyGrid.append()
                 
-        return emptyGrid
+        return 
     
     """取得所有空的格子"""
     def retrieve_empty_cells(self):
@@ -40,23 +33,22 @@ class Grid:
         for i in range(self.size):
             for j in range(self.size):
                 """如果該格子等於0,則在empty_cells新增"""
-                if self.cells[i][j] == 0:
+                if self.cells[i][j] == :
                     empty_cells.append((i, j))
                     
-        return empty_cells 
+        return 
     
     """隨機選一個空的棋格生成數字2"""
     def random_cell(self):
-        cell = random.choice(self.retrieve_empty_cells())
+        cell = random.choice()
         """把取到的元祖資料分別存入i和j"""
-        i = cell[0]
-        j = cell[1]
+        i = 
+        j = 
         self.cells[i][j] = 2
         
     """直接設定格子"""
     def set_cells(self, col , row , num):
         """直接設定格子的數值"""
-        self.cells[col][row] = num
         
     """清除標誌"""
     def clear_flags(self):
@@ -89,64 +81,64 @@ class Grid:
     def up_compress(self):
         self.compressed = False
         """重新生成一個空的二為串列網格，儲存至new_grid"""
-        new_grid = self.generate_empty_grid()
+        new_grid = 
         
         """用二維網格掃過網格"""
-        for i in range(self.size):
+        for i in range():
             count = 0
-            for j in range(self.size):
+            for j in range():
                 """如果該格子的值不等於0，則進行壓縮"""
-                if self.cells[j][i] != 0:
-                    new_grid[count][i] = self.cells[j][i]
+                if :
+                    new_grid[count][i] = 
                     """如果count不等於j，則表示有進行過壓縮"""
-                    if count != j:
-                        self.compressed = True
+                    if :
+                        self.compressed = 
                     """若成功進行壓縮，count值加一"""
-                    count += 1
+                    count 
         """全部壓縮完後，將舊的網格取代成新的網格"""
-        self.cells = new_grid
+        self.cells = 
 
     """向右壓縮"""
     def right_compress(self):
         self.compressed = False
         """重新生成一個空的二為串列網格，儲存至new_grid"""
-        new_grid = self.generate_empty_grid()
+        new_grid = 
         
         """用二維網格掃過網格"""
-        for i in range(self.size):
+        for i in range():
             count = self.size -1
             for j in range(self.size -1,-1,-1):
                 """如果該格子的值不等於0，則進行壓縮"""
-                if self.cells[i][j] != 0:
-                    new_grid[i][count] = self.cells[i][j]
+                if :
+                    new_grid[i][count] = 
                     """如果count不等於j，則表示有進行過壓縮"""
-                    if count != j:
-                        self.compressed = True
+                    if :
+                        self.compressed = 
                     """若成功進行壓縮，count值減一"""
-                    count -= 1
+                    count 
         """全部壓縮完後，將舊的網格取代成新的網格"""
-        self.cells = new_grid
+        self.cells = 
         
     """向下壓縮"""
     def down_compress(self):
         self.compressed = False
         """重新生成一個空的二為串列網格，儲存至new_grid"""
-        new_grid = self.generate_empty_grid()
+        new_grid = 
         
         """用二維網格掃過網格"""
-        for i in range(self.size):
-            count = self.size -1
-            for j in range(self.size -1,-1,-1):
+        for i in range():
+            count = 
+            for j in range():
                 """如果該格子的值不等於0，則進行壓縮"""
-                if self.cells[j][i] != 0:
-                    new_grid[count][i] = self.cells[j][i]
+                if :
+                    new_grid[][] = self.cells[][]
                     """如果count不等於j，則表示有進行過壓縮"""
-                    if count != j:
-                        self.compressed = True
+                    if :
+                        self.compressed = 
                     """若成功進行壓縮，count值減一"""
-                    count -= 1
+                    count 
         """全部壓縮完後，將舊的網格取代成新的網格"""
-        self.cells = new_grid
+        self.cells = 
 
     """向左合併"""
     def left_merge(self):
@@ -169,78 +161,67 @@ class Grid:
     def up_merge(self):
         self.merged = False
         """用二維網格掃過網格(須注意range範圍及串列索引值)"""
-        for i in range(self.size):
-            for j in range(self.size - 1):
+        for i in range():
+            for j in range():
                 
                 """如果數字相同，且不為0則合併"""
-                if self.cells[j][i] == self.cells[j+1][i] \
-                and self.cells[j][i] != 0:
+                if :
                     """上方數字*2，下方數值等於0"""
-                    self.cells[j][i] *= 2
-                    self.cells[j+1][i] = 0
+                    self.cells[j][i] 
+                    self.cells[j+1][i] 
                     self.merged = True
                     
     """向右合併"""               
     def right_merge(self):
         self.merged = False
         """用二維網格掃過網格(須注意range範圍及串列索引值)"""
-        for i in range(self.size):
-            for j in range(self.size -1, 0, -1):
+        for i in range():
+            for j in range():
                 
                 """如果數字相同，且不為0則合併"""
-                if self.cells[i][j] == self.cells[i][j - 1] \
-                and self.cells[i][j] != 0:
+                if :
                     """右方數字*2，左方數值等於0"""
-                    self.cells[i][j] *= 2
-                    self.cells[i][j - 1] = 0
+                    self.cells[i][j]
+                    self.cells[i][j - 1]
                     self.merged = True
                     
     """向下合併"""             
     def down_merge(self):
         self.merged = False
         """用二維網格掃過網格(須注意range範圍及串列索引值)"""
-        for i in range(self.size):
-            for j in range(self.size -1, 0, -1):
+        for i in range():
+            for j in range():
                 
                 """如果數字相同，且不為0則合併"""
-                if self.cells[j][i] == self.cells[j-1][i] \
-                and self.cells[j][i] != 0:
+                if :
                     """下方數字*2，上方數值等於0"""
-                    self.cells[j][i] *= 2
-                    self.cells[j-1][i] = 0 
+                    self.cells[][]
+                    self.cells[][] = 
                     self.merged = True
                     
         """找到2048這個數字"""
     def found_2048(self):
         """用二維網格掃過網格，如果有任一格數值等於2048回傳True，否則為False"""
-        for i in range(self.size):
-            for j in range(self.size):
-                if self.cells[i][j] >= 2048:
-                    return True
-        return False
+        
 
     """有沒有空的格子"""
     def has_empty_cells(self):
         """用二維網格掃過網格，如果有任一格數值為0回傳True，否則為False"""
-        for i in range(self.size):
-            for j in range(self.size):
-                if self.cells[i][j] == 0:
-                    return True
-        return False
+        
 
     """是否可以合併"""
     def can_merge(self):
         """用二維網格掃過網格"""
-        for i in range(self.size):
-            for j in range(self.size - 1 ):
+        for i in range():
+            for j in range():
                 """判斷水平方向是否有相鄰且相同的兩個數字，若有回傳True"""
-                if self.cells[i][j] == self.cells[i][j + 1]:
+                if :
                     return True
         """用二維網格掃過網格"""
-        for j in range(self.size):
-            for i in range(self.size - 1):
+        for j in range():
+            for i in range():
                 """判斷垂直方向是否有相鄰且相同的兩個數字，若有回傳True"""
-                if self.cells[i][j] == self.cells[i + 1][j]:
+                if :
                     return True
         """如果都找不到則回傳False"""
         return False
